@@ -1,11 +1,12 @@
-import { Controller } from '@nestjs/common';
-import type { EmailService } from './email.service';
+import { Controller, Post } from '@nestjs/common';
+import { EmailService } from './email.service';
 
 @Controller('email')
 export class EmailController {
-  private readonly emailService: EmailService;
+  constructor(private readonly emailService: EmailService) {}
 
-  constructor(emailService: EmailService) {
-    this.emailService = emailService;
+  @Post('send')
+  sendEmail() {
+    return this.emailService.sendEmail();
   }
 }

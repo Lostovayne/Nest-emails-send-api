@@ -1,4 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class EmailService {}
+export class EmailService {
+  sendEmail() {
+    return { message: 'Email sent successfully' };
+  }
+}
