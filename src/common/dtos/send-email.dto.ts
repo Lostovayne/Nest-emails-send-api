@@ -6,7 +6,10 @@ import {
   IsObject,
   IsOptional,
   IsString,
+  ValidateNested,
 } from 'class-validator';
+
+import { Type } from 'class-transformer';
 
 export class MailOptions {
   @IsString()
@@ -58,9 +61,13 @@ export class SmtpConfig {
 export class SendEmailDto {
   @IsObject()
   @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => MailOptions)
   mailOptions: MailOptions;
 
   @IsObject()
   @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => SmtpConfig)
   smtpConfig: SmtpConfig;
 }

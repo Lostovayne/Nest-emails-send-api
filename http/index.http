@@ -1,0 +1,22 @@
+
+### Send Emails 
+POST http://localhost:3000/api/email/send
+Content-Type: application/json
+
+{
+  "mailOptions":{
+    "from":"no-reply@deuslovult.cl",
+    "to":"deus@google.com",
+    "subject": "Esto es un correo de test",
+    "html": "<h1> Hola Deus </h1>"
+  },
+  "smtpConfig":{
+    "host":"",
+    "port":"",
+    "secure": false,
+    "auth":{
+      "user":"",
+      "pass":""
+    }
+  }
+}
